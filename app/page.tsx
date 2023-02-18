@@ -1,47 +1,34 @@
-//layout
-import Layout from 'app/layout';
+import Image from 'next/image'
+import { Inter } from '@next/font/google'
+import styles from './page.module.css'
+import bootstrap from './layout'
+import Link from 'next/link'
 
-//import Link
-import Link from 'next/link';
+const inter = Inter({ subsets: ['latin'] })
 
-//import axios
-import axios from "axios";
-
-
-function PostIndex(props: { posts: any; }) {
-
-    //destruct
-    const { posts } = props;
-
-    return(
-        <Layout>
-            <div className="container" style={{ marginTop: '80px' }}>
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="card border-0 shadow-sm rounded-3">
-                            <div className="card-body">
-                                <Link href="/posts/create">
-                                    <button className="btn btn-primary border-0 shadow-sm mb-3">TAMBAH</button>
-                                </Link>
-                                <table className="table table-bordered mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">NAME</th>
-                                            <th scope="col">EMAIL</th>
-                                            <th scope="col">GENDER</th>
-                                            <th scope="col">STATUS</th>
-                                            <th scope="col">ACTION</th>
-                                        </tr>
-                                    </thead>
-                                </table>  
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </Layout>
-    )
+export default function Home() {
+  return (
+    <main>
+        <div>
+            <Link href="/tambah">
+                <button className="btn btn-primary border-0 shadow-sm mb-3">ADD</button>
+            </Link>
+        </div>
+      <div className={styles.center}>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th>GENDER</th>
+                    <th>STATUS</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+        </table>
+      </div>
+    </main>
+  )
 }
-
-export default PostIndex
