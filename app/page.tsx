@@ -7,19 +7,6 @@ import Link from 'next/link';
 //import axios
 import axios from "axios";
 
-//fetch with "getServerSideProps"
-export async function getServerSideProps() {
-
-    //http request
-    const req  = await axios.get(`${process.env.NEXT_PUBLIC_API_BACKEND}/api/page`)
-    const res  = await req.data.data.data
-
-    return {
-      props: {
-          posts: res // <-- assign response
-      },
-    }
-  }
 
 function PostIndex(props: { posts: any; }) {
 
